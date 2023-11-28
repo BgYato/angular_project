@@ -1,0 +1,118 @@
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    padding-top: 5rem;
+} 
+
+.form-login {
+    background-color: rgb(5, 30, 139);
+
+    text-align: center;
+    padding: 2rem;
+    min-width: 30%;
+    max-width: 30%;
+}
+.form-tittle{
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;    
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+
+    padding: .8rem;
+} .form input {
+    display: block;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: .5rem;
+    padding: 10px;
+    color:white;    
+    font-size: 20px;
+    text-align: start;
+    min-width: 90%;
+} .form-input{
+    padding: 0 15px;
+}
+
+.form label{
+    display: block;
+    padding: 10px 0;
+    color:white;    
+    font-size: 25px;
+    text-align: start;
+}
+
+.form-submit{    
+    background-color: rgb(4, 23, 105);
+    border: 1px solid white;
+    border-radius: .5rem;
+    padding: 10px;
+    color:white;    
+    text-align: center;
+    font-size: 160%;    
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.form-submit:hover{
+    background-color: rgba(255, 255, 255, 0.364);
+}
+
+.container-extra {
+    padding: 1rem;
+    border: 5px solid rgb(25, 40, 107);
+    background-color: rgb(41, 59, 139);
+    border-radius: 1rem;
+
+    text-align: center;
+} .container-extra a {
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+} .container-extra a:hover{
+    text-decoration: underline;
+}
+
+.button-register-access{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 10px;
+    color: white;
+} .button-register-access:hover{
+    text-decoration: underline;
+}
+
+.buttonsAngular {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    gap: 30px;
+} .buttonsAngular button {
+    padding: 15px;
+    background-color: rgb(5, 30, 139);
+    border: 0;
+    outline: none;
+    border-radius: 50vh;
+    color: white;
+    cursor: pointer;
+}
+
+.resultsAngular{
+    text-align: center;
+    color: white;
+}

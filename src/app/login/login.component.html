@@ -1,0 +1,31 @@
+<div class="container-login">
+    <div class="form-login">
+        <h2 class="form-tittle">Inicio de sesión</h2>
+        <form class="form">
+            <label for="email">Email</label>
+            <div class="form-input">
+                <input type="email" name="correoUsuario" id="correoUsuario" />
+            </div>
+            <label for="password">Contrseña</label>
+            <div class="form-input">
+                <input type="password" name="passwordUsuario" id="passwordUsuario" />        
+            </div>
+            <button class="form-submit" type="submit" value="login">Ingresar</button>
+            <div class="container-extra">                
+                <p>¿Eres nuevo?</p>
+                <button (click)="showFormRegister()" class="button-register-access">Registra tu cuenta</button>
+                <br>
+                <button (click)="showFormPassword()" class="button-register-access">¿Olvidaste tu contraseña?</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="buttonsAngular">
+    <button (click)="showFormRegister()" class="">Registrarse</button>
+    <button (click)="saludar()" class="">Saludar</button>
+    <button (click)="mostrarMensaje()" class="">Mostrar mensaje</button>
+</div>
+<div class="resultsAngular">
+    <h1>{{ saludo}} </h1>
+    <h1>{{ message }}</h1>
+</div>
