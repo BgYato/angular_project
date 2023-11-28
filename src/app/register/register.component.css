@@ -8,13 +8,19 @@
     padding-top: 5rem;
 } 
 
+.resultado{
+    text-align: center;
+    padding: .5rem;
+    color: white;
+}
+
 .form-register {
     background-color: rgb(5, 30, 139);
 
     text-align: center;
     padding: 2rem;
-    min-width: 30%;
-    max-width: 30%;
+    min-width: 40%;
+    max-width: 40%;
 }
 .form-tittle{
     color: white;

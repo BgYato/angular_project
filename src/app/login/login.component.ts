@@ -11,6 +11,12 @@ export class LoginComponent {
   saludo : String ='';
   message : String = '';
 
+  usuario = this.recoveryStorageFromJson("usuario");
+
+  resultado:String="";
+  correo : String = "";
+  contrasena : String = "";
+
   constructor(
     public route: Router
   ){}
@@ -19,16 +25,34 @@ export class LoginComponent {
     this.route.navigateByUrl('register')
   }
   showFormPassword(){
-    this.route.navigateByUrl('recover-password')
+    this.route.navigateByUrl('recovery')
   }
   saludar(){
-    this.saludo='Esto es un saludo para Andres'; // navegabilidad, reactividad, almacenamiento en local storage 
-    // el login valida si los datos existen o no existen
-    // el register registra los datos en el local storage
+    this.saludo=('Esto es un saludo para '+this.usuario.nombre);
     
     localStorage.setItem('saludo', JSON.stringify( this.saludo )); //<- String converted
   }
   mostrarMensaje(){
     this.message = String(localStorage.getItem('saludo'));
+  }
+
+  login(){
+    const correo = document.getElementById("correoUsuario") as HTMLInputElement;
+    const contrasena = document.getElementById("passwordUsuario") as HTMLInputElement;
+
+    if (this.usuario.email === correo.value && this.usuario.password === contrasena.value) {
+      this.showLoginSuccess()
+    } else {
+      this.resultado = "Datos incorrectos";
+      return;
+    }
+  }
+  showLoginSuccess(){
+    this.route.navigateByUrl('home')
+  }
+  recoveryStorageFromJson(nameData:String){
+    if (nameData) {
+      return JSON.parse(localStorage.getItem(nameData.toString()) || '{}');
+    }
   }
 }

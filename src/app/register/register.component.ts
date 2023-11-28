@@ -11,7 +11,8 @@ import { catchError } from 'rxjs';
 export class RegisterComponent {
   nombre:String="";
   apellido:String="";
-  tel:Number=0;
+  address:String="";
+  tel:String="";
   email:String="";
   password:String="";
   resultado:String="";
@@ -19,8 +20,9 @@ export class RegisterComponent {
   ProtoUsuario={
     nombre:"",
     apellido:"",
-    tel:0,
-    email:"",
+    address:"",
+    tel:"",
+    email:  "",
     password:""
   }
 
@@ -33,35 +35,55 @@ export class RegisterComponent {
   }
 
   saveUser(){
-      try{
-        this.nombre=String(document.getElementById("name")?.textContent);
-        console.log(this.nombre);
-        this.apellido=String(document.querySelector("#surname")?.textContent);
-        this.tel=Number(document.querySelector("#phone")?.textContent);
-        this.email=String(document.querySelector("#email")?.textContent);
-        this.password=String(document.querySelector("#password")?.textContent);
-        // Setting the object typed values by the user
-        this.ProtoUsuario.nombre=String(this.nombre);
-        this.ProtoUsuario.apellido=String(this.apellido);
-        this.ProtoUsuario.tel=Number(this.tel);
-        this.ProtoUsuario.email=String(this.email);
-        this.ProtoUsuario.password=String(this.password);
-        localStorage.setItem('usuario', JSON.stringify(this.ProtoUsuario));
-        console.log(localStorage.getItem('usuario'));
-        
-        // Logica para guardar usuarios 
-      }catch(e){
-        this.resultado = "Ha ocurrido un error";
+    try{
+      const nombre = document.getElementById("name") as HTMLInputElement;
+      const apellido = document.getElementById("lastname") as HTMLInputElement;
+      const direccion = document.getElementById("address") as HTMLInputElement;
+      const telefono = document.getElementById("phone") as HTMLInputElement;
+      const correo = document.getElementById("email") as HTMLInputElement;
+      const contrasena = document.getElementById("password") as HTMLInputElement;
+
+      if (
+        nombre.value == "" || apellido.value == "" || direccion.value == "" || telefono.value == "" || correo.value == "" || contrasena.value == ""
+      ) {
+        this.resultado = "No puedes dejar espacios en blancos";
+        return;
       }
+
+      this.nombre=String(nombre.value); 
+      this.apellido=String(apellido.value);
+      this.address=String(direccion.value);
+      this.tel=String(telefono.value);
+      this.email=String(correo.value);
+      this.password=String(contrasena.value);
+
+      // Setting the object typed values by the user
+      this.ProtoUsuario.nombre=String(this.nombre);
+      this.ProtoUsuario.apellido=String(this.apellido);
+      this.ProtoUsuario.address=String(this.address);
+      this.ProtoUsuario.tel=String(this.tel);
+      this.ProtoUsuario.email=String(this.email);
+      this.ProtoUsuario.password=String(this.password);
+      
+      //save the data
+      this.saveStorage("usuario", this.ProtoUsuario);
+
+      this.showFormLogin()
+    }catch(e){
+      this.resultado = "Ha ocurrido un error";
+    }
+  }
+
+  saveStorage(nameData:String, data:Object) {
+    if (data && nameData) {
+      localStorage.setItem(nameData.toString(), JSON.stringify(data));   
+    }
+  }
+
+  recoveryStorageFromJson(nameData:String){
+    if (nameData) {
+      /* localStorage.getItem(nameData.toString()) */
+      return JSON.parse(localStorage.getItem(nameData.toString()) || '{}');
+    }
   }
 }
-//   this.saludo='Esto es un sa'; // navegabilidad, reactividad, almacenamiento en local storage 
-//   // el login valida si los datos existen o no existen
-//   // el register registra los datos en el local storage
-  
-//   localStorage.setItem('saludo', JSON.stringify( this.saludo )); //<- String converted
-// }
-
-// mostrarMensaje(){
-//   this.message = String(localStorage.getItem('saludo'));
-// }

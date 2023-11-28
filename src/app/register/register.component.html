@@ -1,6 +1,7 @@
 <div class="container-register">
     <div class="form-register">
-        <h2>Registro</h2>
+        <h2 class="form-tittle">Registro</h2>
+        <p class="resultado">{{ resultado }} </p>
         <div class="form">
             <label for="nombre">Nombre</label>
             <div class="form-input">
@@ -10,14 +11,18 @@
             <div class="form-input">
                 <input type="text" name="" id="lastname">
             </div>             
-            <label for="tel">Telefono</label>
+            <label for="address">Dirección</label>
             <div class="form-input">
-                <input type="tel" name="tel" id="phone">
+                <input type="text" name="address" id="address" />
+            </div> 
+            <label for="phone">Telefono</label>
+            <div class="form-input">
+                <input type="text" name="phone" id="phone">
             </div>            
             <label for="email">Email</label>
             <div class="form-input">
                 <input type="email" name="" id="email" />
-            </div>            
+            </div>                          
             <label for="password">Contrseña</label>
             <div class="form-input">
                 <input type="password" name="" id="password" />
@@ -30,5 +35,4 @@
             <button class="button-register-access" (click)="showFormLogin()">Inicia sesión</button>
         </div>
     </div>
-    <h1>{{ resultado }} </h1>
 </div>
